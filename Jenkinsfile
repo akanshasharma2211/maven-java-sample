@@ -33,7 +33,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 withEnv(['JENKINS_NODE_COOKIE=dontKillMe']){
-               sh 'nohup java -jar -DServer.port=8001 target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar &'
+               sh 'nohup java -jar -DServer.port=8080 target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar &'
             }
             }
         }
