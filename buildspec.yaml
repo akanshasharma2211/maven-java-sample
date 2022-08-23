@@ -1,0 +1,21 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+  pre_build:
+    commands:
+      - mvn compile
+    commands: 
+      - mvn clean install
+    commands:
+      - echo Build started on `23/8/22`
+      - mvn clean package
+  post_build:
+    commands:
+      - echo Build completed on `23/8/22`
+      - juint   target/surefire-reports/*.xml
+artifacts:
+  paths:
+     - target/*.jar
